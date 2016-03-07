@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-2E-YOe">
+                                <rect key="frame" x="20" y="51" width="374" height="30"/>
+                                <state key="normal" title="Get All Contacts"/>
+                                <connections>
+                                    <action selector="getContactsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jBF-PB-LAK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyj-h6-Mom">
+                                <rect key="frame" x="20" y="97" width="374" height="30"/>
+                                <state key="normal" title="Create a contact"/>
+                                <connections>
+                                    <action selector="createContactAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CRk-kt-VoL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="2EU-2E-YOe" secondAttribute="trailing" id="4bj-wQ-PUe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gyj-h6-Mom" secondAttribute="trailing" id="Ak3-Zh-lug"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="gyj-h6-Mom" secondAttribute="leading" id="Dfz-9e-4Lz"/>
+                            <constraint firstItem="2EU-2E-YOe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="HyX-aM-6zp"/>
+                            <constraint firstItem="gyj-h6-Mom" firstAttribute="top" secondItem="2EU-2E-YOe" secondAttribute="bottom" constant="16" id="Sbu-9f-DSU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="2EU-2E-YOe" secondAttribute="leading" id="fKR-yL-wCh"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="355"/>
+        </scene>
+    </scenes>
+</document>
