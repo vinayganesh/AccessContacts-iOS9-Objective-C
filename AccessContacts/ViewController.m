@@ -63,7 +63,6 @@ NSArray *nameArray;
         }
         
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [nameArray objectAtIndex:indexPath.row]];
-        //[groupOfContacts objectAtIndex:indexPath.row];
         
         return cell;
 
