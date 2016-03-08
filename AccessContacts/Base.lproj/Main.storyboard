@@ -32,18 +32,33 @@
                                     <action selector="createContactAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CRk-kt-VoL"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Ml-md-GrA">
+                                <rect key="frame" x="20" y="135" width="374" height="581"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ZNe-La-QX8"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dBk-ar-a0D"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2EU-2E-YOe" secondAttribute="trailing" id="4bj-wQ-PUe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gyj-h6-Mom" secondAttribute="trailing" id="Ak3-Zh-lug"/>
                             <constraint firstAttribute="leadingMargin" secondItem="gyj-h6-Mom" secondAttribute="leading" id="Dfz-9e-4Lz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Ml-md-GrA" secondAttribute="trailing" id="EAc-mm-oh9"/>
                             <constraint firstItem="2EU-2E-YOe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="HyX-aM-6zp"/>
                             <constraint firstItem="gyj-h6-Mom" firstAttribute="top" secondItem="2EU-2E-YOe" secondAttribute="bottom" constant="16" id="Sbu-9f-DSU"/>
+                            <constraint firstItem="6Ml-md-GrA" firstAttribute="top" secondItem="gyj-h6-Mom" secondAttribute="bottom" constant="8" id="XvO-h3-d5d"/>
                             <constraint firstAttribute="leadingMargin" secondItem="2EU-2E-YOe" secondAttribute="leading" id="fKR-yL-wCh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="6Ml-md-GrA" secondAttribute="leading" id="qed-VR-sjp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Ml-md-GrA" secondAttribute="bottom" constant="20" id="sdu-Qx-QLa"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="contactsTableView" destination="6Ml-md-GrA" id="Eqj-pg-mm8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

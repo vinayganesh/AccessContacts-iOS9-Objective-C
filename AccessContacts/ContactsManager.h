@@ -3,6 +3,6 @@
 @interface ContactsManager : NSObject
 
 -(void)createContacts;
--(void)getAllContacts;
+-(NSMutableArray *)getAllContacts;
 
 @end

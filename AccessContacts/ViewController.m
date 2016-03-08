@@ -16,9 +16,15 @@
 
 @implementation ViewController
 
+NSArray *groupOfContacts;
+NSArray *nameArray;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    ContactsManager *cManager = [[ContactsManager alloc]init];
+    nameArray = [cManager getAllContacts];
+        
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,7 +35,8 @@
 - (IBAction)getContactsAction:(id)sender {
     
     ContactsManager *cManager = [[ContactsManager alloc]init];
-    [cManager getAllContacts];
+    groupOfContacts = [cManager getAllContacts];
+    NSLog(@"%lu",groupOfContacts.count);
   
 }
 
@@ -38,4 +45,37 @@
     ContactsManager *cManager = [[ContactsManager alloc]init];
     [cManager createContacts];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [nameArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    @try {
+        static NSString *simpleTableIdentifier = @"SimpleTableCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        }
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [nameArray objectAtIndex:indexPath.row]];
+        //[groupOfContacts objectAtIndex:indexPath.row];
+        
+        return cell;
+
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    }
+    @finally {
+        
+    }
+    
+    return nil;
+}
+
 @end

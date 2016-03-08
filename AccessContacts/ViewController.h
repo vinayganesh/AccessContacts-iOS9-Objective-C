@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 - (IBAction)getContactsAction:(id)sender;
 
 - (IBAction)createContactAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *contactsTableView;
 
 @end
 

@@ -4,11 +4,12 @@
 
 @implementation ContactsManager
 
--(void)getAllContacts {
+-(NSMutableArray *)getAllContacts {
     
     NSMutableArray *groupOfContacts;
     NSMutableArray *phoneNumberArray;
-    
+    NSMutableArray *nameArray = [[NSMutableArray alloc]init];
+   
     groupOfContacts = [@[]mutableCopy];
     phoneNumberArray = [@[]mutableCopy];
     
@@ -38,36 +39,40 @@
         
         //retrieve the name and all the phone numbers
         NSString *name = contact.givenName;
-        NSArray *phoneNumber = [[contact.phoneNumbers valueForKey:@"value"]valueForKey:@"digits"] ;
-        
-        //retrieve the contacts phone numbers with first number from the list of phone numbers
-        /*NSArray <CNLabeledValue<CNPhoneNumber *> *> *phoneNumbers = contact.phoneNumbers;
-        CNLabeledValue<CNPhoneNumber *> *firstPhone = [phoneNumbers firstObject];
-        CNPhoneNumber *number = firstPhone.value;
-        NSString *digits = number.stringValue;
-        NSString *label = firstPhone.label;*/
-        
+        NSArray *phoneNumber = [[contact.phoneNumbers valueForKey:@"value"]valueForKey:@"digits"];
         
         //print all name of the contact and phone numbers
-        NSLog(@"%@ %@", name,phoneNumber);
+        NSLog(@"%@:%@",name,phoneNumber);
+        
+        [nameArray addObject:name];
+        
     }
+    
+    return nameArray;
 }
 
 -(void)createContacts {
     
     NSString *contactIdentifier;
     
-    CNLabeledValue<CNPhoneNumber *> *phone = [CNLabeledValue<CNPhoneNumber *> labeledValueWithLabel:CNLabelHome value:[CNPhoneNumber phoneNumberWithStringValue:@"12345"]];
-    
+    //create an address book
     CNContactStore *addressBook = [[CNContactStore alloc]init];
     
+    //create a phone number object
+    CNLabeledValue<CNPhoneNumber *> *phone = [CNLabeledValue<CNPhoneNumber *> labeledValueWithLabel:CNLabelHome value:[CNPhoneNumber phoneNumberWithStringValue:@"12345"]];
+    
+    //create a new contact with all the information
     CNMutableContact *newContact =  [[CNMutableContact alloc]init];
     newContact.givenName = @"Maria";
     newContact.familyName = @"Sharapova";
+    
+    //create the array of phone numbers
     NSArray *phoneNumber = [newContact.phoneNumbers arrayByAddingObject:phone];
     
+    //assign the array to the phone numbers array
     newContact.phoneNumbers = phoneNumber;
     
+    //create a save request for the contact created
     CNSaveRequest *contactSaveRequest = [[CNSaveRequest alloc]init];
     
     [contactSaveRequest addContact:newContact toContainerWithIdentifier:[addressBook defaultContainerIdentifier]];
