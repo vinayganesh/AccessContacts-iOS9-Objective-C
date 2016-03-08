@@ -57,12 +57,16 @@
     
     NSString *contactIdentifier;
     
+    CNLabeledValue<CNPhoneNumber *> *phone = [CNLabeledValue<CNPhoneNumber *> labeledValueWithLabel:CNLabelHome value:[CNPhoneNumber phoneNumberWithStringValue:@"12345"]];
+    
     CNContactStore *addressBook = [[CNContactStore alloc]init];
     
-    
     CNMutableContact *newContact =  [[CNMutableContact alloc]init];
-    newContact.givenName = @"Roger";
-    newContact.familyName = @"Federer";
+    newContact.givenName = @"Maria";
+    newContact.familyName = @"Sharapova";
+    NSArray *phoneNumber = [newContact.phoneNumbers arrayByAddingObject:phone];
+    
+    newContact.phoneNumbers = phoneNumber;
     
     CNSaveRequest *contactSaveRequest = [[CNSaveRequest alloc]init];
     
